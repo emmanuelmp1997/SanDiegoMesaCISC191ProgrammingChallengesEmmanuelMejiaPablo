@@ -2,7 +2,7 @@ package edu.sdmesa.cisc191;
 
 /**
  * Lead Author(s):
- * @author 
+ * @author Emmanuel Mejia Pablo
  * @author 
  * <<add additional lead authors here, with a full first and last name>>
  * 
@@ -16,6 +16,7 @@ package edu.sdmesa.cisc191;
  * <<add more references here>>
  *  
  * Version/date: 
+ * @version 1.0 08-31-2025
  * 
  * Responsibilities of class:
  * 
@@ -44,8 +45,7 @@ public class M1Challenge
 	 */
 	public static int multiply(int a, int b)
 	{
-		// TODO: change this to make the tests pass
-		return -11111;
+		return a * b;
 	}
 	
 	/**
@@ -56,8 +56,7 @@ public class M1Challenge
 	 */
 	public static int getFirst(int[] array)
 	{
-		// TODO: change this method to make the tests pass
-		return -77777;
+		return array[0];
 	}
 	
 	/**
@@ -68,8 +67,8 @@ public class M1Challenge
 	 */
 	public static int getLast(int[] array)
 	{
-		// TODO: change this method to make the tests pass
-		return -88888;
+		int lastIndex = array.length - 1;
+		return array[lastIndex];
 	}
 	
 	/**
@@ -80,20 +79,78 @@ public class M1Challenge
 	 */
 	public static int getMiddle(int[] array)
 	{
-		// TODO: change this method to make the tests pass
-		return -99999;
+		int middleIndex = array.length / 2;
+		return array[middleIndex];
+	}
+
+	/**
+	 * Purpose: return the element that has the maximum value
+	 * 
+	 * @param array to search
+	 * @return the greatest number in the array
+	 */
+	public static int max(int[] array)
+	{
+		int  maxValue = array[0];
+		int index = 1;
+		while(index < array.length)
+		{
+			if(array[index] > maxValue)
+			maxValue = array[index];
+			index++;
+		} 
+		return maxValue;
 	}
 	
-	// Use this template for the other methods
 	/**
-	 * Purpose:
+	 * Purpose: return the element that has the minimum value
 	 * 
-	 * @param array
-	 * @return
+	 * @param array to search
+	 * @return the smallest number in the array
 	 */
-//	public static ??? ???(???[] array)
-//	{
-//		return ???;
-//	}
-
+	public static int min(int[] array)
+	{
+		int  minValue = array[0];
+		int index = 1;
+		while(index < array.length)
+		{
+			if(array[index] < minValue)
+			minValue = array[index];
+			index++;
+		} 
+		return minValue;
+	}
+	
+	/**
+	 * Purpose: return the sum of all the elements
+	 * 
+	 * @param array to search
+	 * @return the sum of all the elements in the array
+	 */
+	public static int sum(int[] array)
+	{
+		int sum = 0;
+		int index = 0;
+		while(index < array.length)
+		{
+			sum += array[index];
+			index++;
+		}
+		return sum;
+	}
+	
+	/**
+	 * Purpose: return the average of the elements in the array
+	 * 
+	 * @param array to search
+	 * @return average of elements
+	 */
+	public static double average(int[] array)
+	{
+		int sumOfElements = sum(array);
+		
+		double average = (double)sumOfElements / array.length;
+		return average;
+	}
+	
 }
