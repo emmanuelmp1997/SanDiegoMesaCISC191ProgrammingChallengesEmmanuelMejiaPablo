@@ -2,7 +2,7 @@ package edu.sdmesa.cisc191;
 
 /**
  * Lead Author(s):
- * @author 
+ * @author  Emmanuel Mejia 
  * @author 
  * <<add additional lead authors here, with a full first and last name>>
  * 
@@ -43,9 +43,6 @@ public class M2ArrayChallenge
 		return elementFound;
 	}
 	
-	
-	
-	
 	/**
 	 * Purpose: return the index where the character passed an argument is found
 	 * 
@@ -67,10 +64,6 @@ public class M2ArrayChallenge
 		return indexOfChar;
 	}	
 	
-	
-	
-	
-	
 	/**
 	 * Purpose: return the number of occurrences of a given char in an array of chars
 	 * 
@@ -88,10 +81,6 @@ public class M2ArrayChallenge
 		return count;
 	}	
 	
-	
-	
-	
-	
 	/**
 	 * Purpose: checks if the numerical values are in increasing order from left to right
 	 * 
@@ -108,11 +97,6 @@ public class M2ArrayChallenge
 		return true;
 	}	
 	
-	
-	
-	
-	
-	
 	/**
 	 * Purpose: switch the specified element with the next element in an array of characters
 	 * 
@@ -127,10 +111,6 @@ public class M2ArrayChallenge
 		//return ???;
 	}	
 	
-	
-	
-	
-
 	/**
 	 * Purpose: To organize a char array in ascending order
 	 * 
@@ -147,11 +127,6 @@ public class M2ArrayChallenge
 		//return ???;
 	}	
 	
-	
-	
-	
-	
-	
 	/**
 	 * Purpose: The bubblesort method sorts an array
 	 * 
@@ -167,11 +142,6 @@ public class M2ArrayChallenge
 		//return ???;
 	}
 	
-	
-	
-	
-	
-
 	/**
 	 * Purpose: To make a deep copy of the passed array of characters.
 	 * 
@@ -189,11 +159,6 @@ public class M2ArrayChallenge
 		
 		return copy;
 	}
-	
-	
-	
-	
-
 	
 	/**
 	 * Purpose: Checks if the elements of two arrays are equal at the same index
@@ -223,11 +188,6 @@ public class M2ArrayChallenge
 		return true;
 	}
 	
-	
-	
-	
-	
-	
 	/**
 	 * Purpose: To return an array that has the same elements as the passed array reordered backwards.
 	 * 
@@ -249,12 +209,6 @@ public class M2ArrayChallenge
 		return backwardsArray;
 	}
 	
-	
-	
-	
-	
-	
-
 	/**
 	 * Purpose: Checks if the elements from the start to the midpoint are exactly the same as the elements from end to the midpoint.
 	 * 
@@ -279,12 +233,6 @@ public class M2ArrayChallenge
 		return true;
 	}
 	
-	
-	
-	
-	
-	
-
 	/**
 	 * Purpose: Returns the element from the passed row and column number
 	 * 
@@ -298,11 +246,6 @@ public class M2ArrayChallenge
 		return array[row][column];
 	}
 	
-	
-	
-	
-	
-
 	/**
 	 * Purpose: To find the sum of all the elements in a specified row. Each element of the outer array contains one row.
 	 * 
@@ -323,12 +266,6 @@ public class M2ArrayChallenge
 		return sum;
 	}
 	
-	
-	
-	
-	
-	
-
 	/**
 	 * Purpose: To find the sum of all the elements in a specified column. 
 	 * 
@@ -346,42 +283,100 @@ public class M2ArrayChallenge
 		return sum;
 	}
 	
+	/**
+	 * Purpose: To sum the elements that are diagonally grouped together from left to right and starting at indexes [0][0].
+	 * 
+	 * @param array The array to search
+	 * @return the sum of the diagonal group of elements.
+	 */
+	public static int addLeftToRightDiagonal(int[][] array)
+	{	
+		int sum = 0;
+		int i = 0;
+		int j = 0;
+		
+		for(; i < array.length; i++, j++)
+		{
+			sum += array[i][j];
+		}
+				
+		return sum;
+	}
 	
+	/**
+	 * Purpose: To sum the elements that diagonally grouped together from right to left and ending at indexes [0][0].
+	 * 
+	 * @param array the array to search
+	 * @return  the sum of the diagonal group of elements.
+	 */
+	public static int addRightToLeftDiagonal(int[][] array)
+	{
+		//Since the sum starts with the last element in the first subarray, an error will occur if the outer array is empty.
+		if(array.length == 0)
+			return 0;
+		
+		//
+		else
+		{
+			int sum = 0;
+			int i = 0; //Control variable for the outer array
+			int j = array[1].length - 1; //Control variable for the inner array indexes.
+			
+			for (; i < array.length ; i++, j--)
+			{
+				sum += array[i][j];
+			}
+			return sum;	
+		}
+	}
 	
-//	/**
-//	 * Purpose:
-//	 * 
-//	 * @param array
-//	 * @return
-//	 */
-//	public static ??? ???(???[] array)
-//	{
-//		return ???;
-//	}
+	/**
+	 * Purpose: To add the last element in each row.
+	 * 
+	 * @param array the array to search
+	 * @return the sum of the elements.
+	 */
+	public static int addLastRowElement(int[][] array)
+	{
+		int sum = 0;
+		int row = 0;
+		int lastIndexOfRow = -1;
+		
+		
+		for (; row < array.length  ; row++)
+		{
+			lastIndexOfRow = array[row].length - 1; 
+			
+			int lastElementInRow = array[row][lastIndexOfRow]; 
+			
+			sum += lastElementInRow;
+		}
+			
+		
+		return sum;
+	}
 	
-	
-	
-//	/**
-//	 * Purpose:
-//	 * 
-//	 * @param array
-//	 * @return
-//	 */
-//	public static ??? ???(???[] array)
-//	{
-//		return ???;
-//	}
-	
-	
-//	/**
-//	 * Purpose:
-//	 * 
-//	 * @param array
-//	 * @return
-//	 */
-//	public static ??? ???(???[] array)
-//	{
-//		return ???;
-//	}
+	/**
+	 * Purpose: To sum all the elements in the passed matrix
+	 * 
+	 * @param array the matrix to search
+	 * @return the sum of all the elements
+	 */
+	public static int addAll(int[][] array)
+	{
+		int sum = 0;
+		
+		// Outer loop to enter the first row
+		for (int[] row : array)
+		{
+			//Inner loop add the elements in the current row.
+			for (int element : row)
+			{
+				sum += element;
+			}
+		}
+		
+		return sum;
+	}
 	
 }
