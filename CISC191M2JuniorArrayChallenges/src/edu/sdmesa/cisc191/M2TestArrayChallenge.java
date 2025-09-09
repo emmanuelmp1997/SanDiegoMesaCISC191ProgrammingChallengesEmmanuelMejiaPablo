@@ -390,52 +390,52 @@ class M2TestArrayChallenge
 						   {13, 14, 15, 20}};
 		assertEquals(1+6+11+20, addLeftToRightDiagonal(matrix2));
 	}
-//
-//	@Test
-//	void testAddRightToLeftDiagonal()
-//	{
-//	    // Assume that the input arrays are square
-//
-//		int[][] array0 = {};
-//		assertEquals(0, addRightToLeftDiagonal(array0));
-//		
-//		int[][] matrix1 = {{1, 2, 3}, 
-//				   		   {4, 5, 6},
-//				   		   {7, 8, 9}};
-//		assertEquals(3+5+7, addRightToLeftDiagonal(matrix1));
-//		
-//		int[][] matrix2 = {{1,   2,  3,  4}, 
-//						   {5,   6,  7,  8},
-//						   {9,  10, 11, 12},
-//						   {13, 14, 15, 20}};
-//		assertEquals(4+7+10+13, addRightToLeftDiagonal(matrix2));		
-//	}
-//
-//	@Test
-//	void testAddLastRowElement()
-//	{
-//		// Use row and column (if needed) for index variable names
-//
-//		int[][] matrix2 = {{1,   2,  3,  4}, 
-//				           {5,   6,  7},
-//				           {9,  10},
-//				           {13, 14, 15, 16}};
-//		assertEquals(4+7+10+16, addLastRowElement(matrix2));			
-//	}
-//
-//	@Test
-//	void testAddAll()
-//	{
-//		int[][] array0 = {};
-//		assertEquals(0, addAll(array0));
-//
-//  	// Use row and column for index variable names
-//
-//		int[][] matrix2 = {{1,   2,  3,  4}, 
-//				           {5,   6,  7},
-//				           {9,  10},
-//				           {13, 14, 15, 16}};
-//		assertEquals(1+2+3+4+5+6+7+9+10+13+14+15+16, addAll(matrix2));
-//	}
+
+	@Test
+	void testAddRightToLeftDiagonal()
+	{
+	    // Assume that the input arrays are square
+
+		int[][] array0 = {};
+		assertEquals(0, addRightToLeftDiagonal(array0));
+		
+		int[][] matrix1 = {{1, 2, 3}, 
+				   		   {4, 5, 6},
+				   		   {7, 8, 9}};
+		assertEquals(3+5+7, addRightToLeftDiagonal(matrix1));
+		
+		int[][] matrix2 = {{1,   2,  3,  4}, 
+						   {5,   6,  7,  8},
+						   {9,  10, 11, 12},
+						   {13, 14, 15, 20}};
+		assertEquals(4+7+10+13, addRightToLeftDiagonal(matrix2));		
+	}
+
+	@Test
+	void testAddLastRowElement()
+	{
+		// Use row and column (if needed) for index variable names
+
+		int[][] matrix2 = {{1,   2,  3,  4}, 
+				           {5,   6,  7},
+				           {9,  10},
+				           {13, 14, 15, 16}};
+		assertEquals(4+7+10+16, addLastRowElement(matrix2));			
+	}
+
+	@Test
+	void testAddAll()
+	{
+		int[][] array0 = {};
+		assertEquals(0, addAll(array0));
+
+  	// Use row and column for index variable names
+
+		int[][] matrix2 = {{1,   2,  3,  4}, 
+				           {5,   6,  7},
+				           {9,  10},
+				           {13, 14, 15, 16}};
+		assertEquals(1+2+3+4+5+6+7+9+10+13+14+15+16, addAll(matrix2));
+	}
 
 }
