@@ -2,6 +2,7 @@ package edu.sdmesa.cisc191;
 
 import java.awt.Color;
 import edu.gatech.cc.DigitalPicture;
+import edu.gatech.cc.Picture;
 import edu.gatech.cc.Pixel;
 
 /**
@@ -72,27 +73,13 @@ public class Logic
 			for (column = 0 ; column < columnLength ; column++)
 			{
 				Pixel pixel = pixelsOfPicture[row][column];
-				average = (int) pixel.getAverage();
+				average = (pixel.getRed() + pixel.getGreen() + pixel.getBlue()) / 3;
 				pixel.setRed(average);
 				pixel.setGreen(average);
-				pixel.setRed(average);
+				pixel.setBlue(average);
 			}
-			
-
 		}
-		
-		
-		
-		
-
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	/**
 	 * Purpose: Invert the colors of image
@@ -152,30 +139,30 @@ public class Logic
 	 * you are
 	 * applying to the image(s)! Please see the comment(s) for examples.
 	 */
-//	public static void main(String[] arg)
-//	{
-//
-//		// Create a myPicture object from the provided file name.
-//		// If you use your own image, be sure to place it in the images folder
-//		// of this project
-//		DigitalPicture myPicture = new Picture("bees.png");
-//		myPicture.setTitle("Original Image");
-//
-//		// Use the explore method of the object to view the picture.
-//		myPicture.explore();
-//
-//		/*
-//		 * Apply the filter then invoke explorer again to view the changes. :)
-//		 * ---------------------------------------------------------------------
-//		 * ---------------
-//		 */
-//
-//		// Apply one of the filters then view the image again with explore!
-//		zeroBlue(myPicture); // <----- Change this to one of the other filters
-//								// that you have written
-//		myPicture.setTitle("After Filter"); // change the title of the JFrame
-//		myPicture.explore();
-//
-//	}
+	public static void main(String[] arg)
+	{
+
+		// Create a myPicture object from the provided file name.
+		// If you use your own image, be sure to place it in the images folder
+		// of this project
+		DigitalPicture myPicture = new Picture("bees.png");
+		myPicture.setTitle("Original Image");
+
+		// Use the explore method of the object to view the picture.
+		myPicture.explore();
+
+		/*
+		 * Apply the filter then invoke explorer again to view the changes. :)
+		 * ---------------------------------------------------------------------
+		 * ---------------
+		 */
+
+		// Apply one of the filters then view the image again with explore!
+		blackAndWhite(myPicture); // <----- Change this to one of the other filters
+								// that you have written
+		myPicture.setTitle("After Filter"); // change the title of the JFrame
+		myPicture.explore();
+
+	}
 
 }
