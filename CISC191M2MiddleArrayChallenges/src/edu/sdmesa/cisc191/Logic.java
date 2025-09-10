@@ -7,7 +7,7 @@ import edu.gatech.cc.Pixel;
 /**
  * Lead Author(s):
  * 
- * @author
+ * @author Emmanuel Mejia Pablo
  * @author
  *         <<add additional lead authors here, with a full first and last name>>
  * 
@@ -23,7 +23,7 @@ import edu.gatech.cc.Pixel;
  * 
  *         <<add more references here>>
  * 
- *         Version/date:
+ *         Version/date: 09-08-2024
  * 
  *         Responsibilities of class:
  * 
