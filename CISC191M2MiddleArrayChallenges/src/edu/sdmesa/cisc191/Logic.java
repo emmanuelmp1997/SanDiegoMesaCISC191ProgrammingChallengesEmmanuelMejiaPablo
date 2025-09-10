@@ -61,9 +61,38 @@ public class Logic
 	 */
 	public static void blackAndWhite(DigitalPicture picture)
 	{
-		// TODO Implement this method
+		Pixel[][] pixelsOfPicture = picture.getPixels2D();
+		int average;
+		int row, column;
+		
+		for (row = 0 ; row < pixelsOfPicture.length ; row++)
+		{
+			int columnLength = pixelsOfPicture[row].length;
+			
+			for (column = 0 ; column < columnLength ; column++)
+			{
+				Pixel pixel = pixelsOfPicture[row][column];
+				average = (int) pixel.getAverage();
+				pixel.setRed(average);
+				pixel.setGreen(average);
+				pixel.setRed(average);
+			}
+			
+
+		}
+		
+		
+		
+		
 
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * Purpose: Invert the colors of image
