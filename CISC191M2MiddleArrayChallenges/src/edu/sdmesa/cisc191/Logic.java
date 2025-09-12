@@ -31,6 +31,19 @@ import edu.gatech.cc.Pixel;
  */
 public class Logic
 {
+	private static Pixel[][] pixelsOfPicture;
+	
+	private static Pixel pixel;
+	
+	private static int redValue;
+	private static int greenValue;
+	private static int blueValue;
+	private static int averageRGB;
+	
+	private static int row, column;
+	
+	private static int columnLength;
+	
 	/**
 	 * Alters the picture so that each pixel's blue channel has been zeroed out.
 	 * All
@@ -62,21 +75,21 @@ public class Logic
 	 */
 	public static void blackAndWhite(DigitalPicture picture)
 	{
-		Pixel[][] pixelsOfPicture = picture.getPixels2D();
-		int average;
-		int row, column;
+		pixelsOfPicture = picture.getPixels2D();
 		
 		for (row = 0 ; row < pixelsOfPicture.length ; row++)
 		{
-			int columnLength = pixelsOfPicture[row].length;
+			columnLength = pixelsOfPicture[row].length;
 			
 			for (column = 0 ; column < columnLength ; column++)
 			{
-				Pixel pixel = pixelsOfPicture[row][column];
-				average = (pixel.getRed() + pixel.getGreen() + pixel.getBlue()) / 3;
-				pixel.setRed(average);
-				pixel.setGreen(average);
-				pixel.setBlue(average);
+				pixel = pixelsOfPicture[row][column];
+				
+				averageRGB = (pixel.getRed() + pixel.getGreen() + pixel.getBlue()) / 3;
+				
+				pixel.setRed(averageRGB);
+				pixel.setGreen(averageRGB);
+				pixel.setBlue(averageRGB);
 			}
 		}
 	}
@@ -87,7 +100,25 @@ public class Logic
 	 */
 	public static void negative(DigitalPicture picture)
 	{
-		// TODO Implement this method
+		pixelsOfPicture = picture.getPixels2D();
+		
+		for (row = 0 ; row < pixelsOfPicture.length ; row++) //ENTERS THE ROW
+		{
+			columnLength = pixelsOfPicture[row].length; 
+			
+			for(column = 0; column < columnLength ; column++) //ENTERS THE COLUMN
+			{
+				pixel = pixelsOfPicture[row][column];
+				
+				redValue = 255 - pixel.getRed();
+				greenValue = 255 - pixel.getGreen();
+				blueValue = 255 - pixel.getBlue();
+				
+				pixel.setRed(redValue);
+				pixel.setGreen(greenValue);
+				pixel.setBlue(blueValue);
+			}
+		}
 
 	}
 	
@@ -100,7 +131,34 @@ public class Logic
 	public static void makeSunset(DigitalPicture picture, double redMultiplier,
 			double greenBlueMultiplier)
 	{
-		// TODO Implement this method
+		pixelsOfPicture = picture.getPixels2D();
+		
+		for (row = 0 ; row < pixelsOfPicture.length ; row++)
+		{
+			columnLength = pixelsOfPicture[row].length;
+			
+			for (column = 0 ; column < columnLength ; column++)
+			{
+				pixel = pixelsOfPicture[row][column];
+				
+				// Calculates the new RGB values of the pixel
+				redValue = (int) (pixel.getRed() * redMultiplier);
+				greenValue = (int) (pixel.getGreen() * greenBlueMultiplier);
+			    blueValue = (int) (pixel.getBlue() * greenBlueMultiplier);
+			    
+			    // Bounds the values to 255 max
+			    if (redValue > 255)
+			    		redValue = 255;
+			    if (greenValue > 255)
+			    		greenValue = 255;
+			    if (blueValue > 255)
+			    		blueValue = 255;
+			    
+			    Color newColor = new Color(redValue, greenValue, blueValue);
+				
+			    pixel.setColor(newColor);
+			}
+		}
 
 	}
 

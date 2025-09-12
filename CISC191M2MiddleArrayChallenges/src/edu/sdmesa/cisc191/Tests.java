@@ -79,54 +79,54 @@ public class Tests
 		assertEquals(expectedPicture, studentPicture, "Black and White");
 	}
 
-//	@Test
-//	@Order(3)
-//	public void testNegative()
-//	{
-//		/* Create two identical Picture objects from the same picture */
-//		Picture studentPicture = new Picture("bees.png");
-//		Picture expectedPicture = new Picture("beesNegative.png");
-//
-//		/* apply the filter */
-//		Logic.negative(studentPicture);
-//
-//		// the resulting student image should be pixel by pixel equivalent to
-//		// the expectedPicture image
-//		assertEquals(expectedPicture, studentPicture, "Negative");
-//	}
-//
-//	@Test
-//	@Order(4)
-//	public void testMakeSunset()
-//	{
-//		/* Create two identical Picture objects from the same picture */
-//		Picture studentPicture = new Picture("fireFall.png");
-//		Picture expectedPicture = new Picture("fireFallMakeSunset.png");
-//
-//		/* apply the filter */
-//		Logic.makeSunset(studentPicture, 1.5, .9);
-//
-//		// the resulting student image should be pixel by pixel equivalent to
-//		// the expectedPicture image
-//		assertEquals(expectedPicture, studentPicture, "Make Sunset");
-//	}
-//
-//	@Test
-//	@Order(5)
-//	void testFlipHorizontal()
-//	{
-//		/* Create two identical Picture objects from the same picture */
-//		Picture studentPicture = new Picture("fireFall.png");
-//		Picture expectedPicture = new Picture("fireFallFlipHorizontal.png");
-//
-//		/* apply the filter */
-//		Logic.flipHorizontal(studentPicture);
-//
-//		// the resulting student image should be pixel by pixel equivalent to
-//		// the expectedPicture image
-//		assertEquals(expectedPicture, studentPicture, "Flip Horizontal");
-//	}
-//
+	@Test
+	@Order(3)
+	public void testNegative()
+	{
+		/* Create two identical Picture objects from the same picture */
+		Picture studentPicture = new Picture("bees.png");
+		Picture expectedPicture = new Picture("beesNegative.png");
+
+		/* apply the filter */
+		Logic.negative(studentPicture);
+
+		// the resulting student image should be pixel by pixel equivalent to
+		// the expectedPicture image
+		assertEquals(expectedPicture, studentPicture, "Negative");
+	}
+
+	@Test
+	@Order(4)
+	public void testMakeSunset()
+	{
+		/* Create two identical Picture objects from the same picture */
+		Picture studentPicture = new Picture("fireFall.png");
+		Picture expectedPicture = new Picture("fireFallMakeSunset.png");
+
+		/* apply the filter */
+		Logic.makeSunset(studentPicture, 1.5, .9);
+
+		// the resulting student image should be pixel by pixel equivalent to
+		// the expectedPicture image
+		assertEquals(expectedPicture, studentPicture, "Make Sunset");
+	}
+
+	@Test
+	@Order(5)
+	void testFlipHorizontal()
+	{
+		/* Create two identical Picture objects from the same picture */
+		Picture studentPicture = new Picture("fireFall.png");
+		Picture expectedPicture = new Picture("fireFallFlipHorizontal.png");
+
+		/* apply the filter */
+		Logic.flipHorizontal(studentPicture);
+
+		// the resulting student image should be pixel by pixel equivalent to
+		// the expectedPicture image
+		assertEquals(expectedPicture, studentPicture, "Flip Horizontal");
+	}
+
 //	@Test
 //	@Order(6)
 //	public void testFlipVertical()
