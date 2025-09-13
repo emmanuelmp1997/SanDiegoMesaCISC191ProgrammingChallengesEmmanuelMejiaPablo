@@ -169,7 +169,7 @@ public class Logic
 	/**
 	 * Purpose: to swap two pixels
 	 */
-	public static void pixelSwap()
+//	public static void pixelSwap()
 	
 	
 	/**
@@ -207,12 +207,12 @@ public class Logic
 		
 	}
 
-//	/**
-//	 * Purpose: Turn the picture up-side-down
-//	 * @param picture
-//	 */
-//	public static void flipVertical(DigitalPicture picture)
-//	{
+	/**
+	 * Purpose: Turn the picture up-side-down
+	 * @param picture
+	 */
+	public static void flipVertical(DigitalPicture picture)
+	{
 //		pixelsOfPicture = picture.getPixels2D();
 //		int rowIndexInReverse = pixelsOfPicture.length - 1;
 //		for (row = 0 ; row < (pixelsOfPicture.length/2) ; row++, rowIndexInReverse--)
@@ -226,8 +226,8 @@ public class Logic
 //				pixelsOfPicture[row][column] = tempPixelHolder;
 //			}
 //		}
-//
-//	}
+
+	}
 
 	/**
 	 * Purpose: Make the image less sharp
