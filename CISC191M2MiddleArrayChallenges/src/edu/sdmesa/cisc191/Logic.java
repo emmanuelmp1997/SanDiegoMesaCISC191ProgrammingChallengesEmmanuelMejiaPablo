@@ -39,6 +39,9 @@ public class Logic
 	private static int greenValue;
 	private static int blueValue;
 	private static int averageRGB;
+	private static Color newColor;
+	
+	private static Color tempColorHolder;
 	
 	private static int row, column;
 	
@@ -136,7 +139,6 @@ public class Logic
 		for (row = 0 ; row < pixelsOfPicture.length ; row++)
 		{
 			columnLength = pixelsOfPicture[row].length;
-			
 			for (column = 0 ; column < columnLength ; column++)
 			{
 				pixel = pixelsOfPicture[row][column];
@@ -154,33 +156,78 @@ public class Logic
 			    if (blueValue > 255)
 			    		blueValue = 255;
 			    
-			    Color newColor = new Color(redValue, greenValue, blueValue);
+			    newColor = new Color(redValue, greenValue, blueValue);
 				
 			    pixel.setColor(newColor);
 			}
 		}
 
 	}
+	
 
+
+	/**
+	 * Purpose: to swap two pixels
+	 */
+	public static void pixelSwap()
+	
+	
 	/**
 	 * Purpose: Flip the image left to right (as used in many selfie cams)
 	 * @param picture
 	 */
 	public static void flipHorizontal(DigitalPicture picture)
 	{
-		// TODO Implement this method
+		
+		pixelsOfPicture = picture.getPixels2D();
+		for (row = 0 ; row < pixelsOfPicture.length ; row++)
+		{
+			columnLength = pixelsOfPicture[row].length;
+			int columnIndexInReverse = (columnLength - 1);
+			Pixel tempPixelHolder;
+			for (column = 0 ; column < (columnLength/2) ; column++ , columnIndexInReverse--)
+			{
+				// Gets the colors of the specified Pixel
+				redValue = pixelsOfPicture[row][column].getRed();
+				greenValue = pixelsOfPicture[row][column].getGreen();
+				blueValue = pixelsOfPicture[row][column].getBlue();
+				newColor = new Color (redValue, greenValue, blueValue);
+				
+				// Gets the colors of the specified Pixel
+				redValue = pixelsOfPicture[row][columnIndexInReverse].getRed();
+				greenValue = pixelsOfPicture[row][columnIndexInReverse].getGreen();
+				blueValue = pixelsOfPicture[row][columnIndexInReverse].getBlue();
+				tempColorHolder = new Color (redValue, greenValue, blueValue);
+				
+				pixelsOfPicture[row][columnIndexInReverse].setColor(newColor);
+				
+				pixelsOfPicture[row][column].setColor(tempColorHolder);
+			}
+		}
 		
 	}
 
-	/**
-	 * Purpose: Turn the picture up-side-down
-	 * @param picture
-	 */
-	public static void flipVertical(DigitalPicture picture)
-	{
-		// TODO Implement this method
-
-	}
+//	/**
+//	 * Purpose: Turn the picture up-side-down
+//	 * @param picture
+//	 */
+//	public static void flipVertical(DigitalPicture picture)
+//	{
+//		pixelsOfPicture = picture.getPixels2D();
+//		int rowIndexInReverse = pixelsOfPicture.length - 1;
+//		for (row = 0 ; row < (pixelsOfPicture.length/2) ; row++, rowIndexInReverse--)
+//		{
+//			Pixel tempPixelHolder;
+//			columnLength = pixelsOfPicture[row].length;
+//			for (column = 0 ; column < columnLength ; column++)
+//			{
+//				tempPixelHolder = pixelsOfPicture[rowIndexInReverse][column];
+//				pixelsOfPicture[rowIndexInReverse][column] = pixelsOfPicture[row][column];
+//				pixelsOfPicture[row][column] = tempPixelHolder;
+//			}
+//		}
+//
+//	}
 
 	/**
 	 * Purpose: Make the image less sharp

@@ -50,6 +50,7 @@ public class Pixel
 
 	///////////////////////// methods //////////////////////////////
 
+
 	/**
 	 * Method to get the x location of this pixel.
 	 * 
