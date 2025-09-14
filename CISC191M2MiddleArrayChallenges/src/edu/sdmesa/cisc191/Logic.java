@@ -41,8 +41,6 @@ public class Logic
 	private static int averageRGB;
 	private static Color newColor;
 	
-	private static Color tempColorHolder;
-	
 	private static int row, column;
 	
 	private static int columnLength;
@@ -168,8 +166,28 @@ public class Logic
 
 	/**
 	 * Purpose: to swap two pixels
+	 * @param pixel1 A pixel object
+	 * @Param pixel2 the other pixel to swap colors with
 	 */
-//	public static void pixelSwap()
+	public static void pixelSwap(Pixel pixel1, Pixel pixel2)
+	{
+		// Gets the color of the specified pixel (pixel from the left)
+		redValue = pixel1.getRed();
+		greenValue = pixel1.getGreen();
+		blueValue = pixel1.getBlue();
+		Color colorOfPixel1 = new Color (redValue, greenValue, blueValue); 
+		
+		// Gets the colors of the specified Pixel (pixel from the right)
+		redValue = pixel2.getRed();
+		greenValue = pixel2.getGreen();
+		blueValue = pixel2.getBlue();
+		Color colorOfPixel2 = new Color (redValue, greenValue, blueValue); 
+		
+		//Swap colors
+		pixel2.setColor(colorOfPixel1);
+		pixel1.setColor(colorOfPixel2);
+		
+	}
 	
 	
 	/**
@@ -182,26 +200,17 @@ public class Logic
 		pixelsOfPicture = picture.getPixels2D();
 		for (row = 0 ; row < pixelsOfPicture.length ; row++)
 		{
-			columnLength = pixelsOfPicture[row].length;
-			int columnIndexInReverse = (columnLength - 1);
-			Pixel tempPixelHolder;
-			for (column = 0 ; column < (columnLength/2) ; column++ , columnIndexInReverse--)
+			int pictureWidth = pixelsOfPicture[row].length;
+			int columnFromLeft = 0;
+			int columnFromRight = (pictureWidth - 1);
+			for ( ; columnFromLeft < (pictureWidth/2) ; columnFromLeft++ , columnFromRight--)
 			{
-				// Gets the colors of the specified Pixel
-				redValue = pixelsOfPicture[row][column].getRed();
-				greenValue = pixelsOfPicture[row][column].getGreen();
-				blueValue = pixelsOfPicture[row][column].getBlue();
-				newColor = new Color (redValue, greenValue, blueValue);
+				//Get the two pixels to swap
+				Pixel pixelOnLeft = pixelsOfPicture[row][columnFromLeft];
+				Pixel pixelOnRight = pixelsOfPicture[row][columnFromRight];
 				
-				// Gets the colors of the specified Pixel
-				redValue = pixelsOfPicture[row][columnIndexInReverse].getRed();
-				greenValue = pixelsOfPicture[row][columnIndexInReverse].getGreen();
-				blueValue = pixelsOfPicture[row][columnIndexInReverse].getBlue();
-				tempColorHolder = new Color (redValue, greenValue, blueValue);
-				
-				pixelsOfPicture[row][columnIndexInReverse].setColor(newColor);
-				
-				pixelsOfPicture[row][column].setColor(tempColorHolder);
+				//Swap pixel colors
+				pixelSwap(pixelOnRight, pixelOnLeft);	
 			}
 		}
 		
@@ -213,19 +222,25 @@ public class Logic
 	 */
 	public static void flipVertical(DigitalPicture picture)
 	{
-//		pixelsOfPicture = picture.getPixels2D();
-//		int rowIndexInReverse = pixelsOfPicture.length - 1;
-//		for (row = 0 ; row < (pixelsOfPicture.length/2) ; row++, rowIndexInReverse--)
-//		{
-//			Pixel tempPixelHolder;
-//			columnLength = pixelsOfPicture[row].length;
-//			for (column = 0 ; column < columnLength ; column++)
-//			{
-//				tempPixelHolder = pixelsOfPicture[rowIndexInReverse][column];
-//				pixelsOfPicture[rowIndexInReverse][column] = pixelsOfPicture[row][column];
-//				pixelsOfPicture[row][column] = tempPixelHolder;
-//			}
-//		}
+		pixelsOfPicture = picture.getPixels2D();
+		
+		int pictureHeight = pixelsOfPicture.length;
+		int rowFromTop = 0;
+		int rowFromBottom = pictureHeight - 1;
+		for ( ; rowFromTop < pictureHeight/2 ; rowFromTop++ , rowFromBottom--)
+		{
+			columnLength = pixelsOfPicture[row].length;
+			for (column = 0 ; column < columnLength ; column++)
+			{
+				//Get the two pixels to swap
+				Pixel pixelFromTop = pixelsOfPicture[rowFromTop][column];
+				Pixel pixelFromBottom = pixelsOfPicture[rowFromBottom][column];
+				
+				// Swap Pixel colors
+				pixelSwap(pixelFromTop, pixelFromBottom);
+			
+			}
+		}
 
 	}
 
@@ -263,7 +278,7 @@ public class Logic
 		 */
 
 		// Apply one of the filters then view the image again with explore!
-		blackAndWhite(myPicture); // <----- Change this to one of the other filters
+		flipVertical(myPicture); // <----- Change this to one of the other filters
 								// that you have written
 		myPicture.setTitle("After Filter"); // change the title of the JFrame
 		myPicture.explore();
