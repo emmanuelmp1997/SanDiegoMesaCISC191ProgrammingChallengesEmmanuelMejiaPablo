@@ -127,37 +127,37 @@ public class Tests
 		assertEquals(expectedPicture, studentPicture, "Flip Horizontal");
 	}
 
-//	@Test
-//	@Order(6)
-//	public void testFlipVertical()
-//	{
-//		/* Create two identical Picture objects from the same picture */
-//		Picture studentPicture = new Picture("fireFall.png");
-//		Picture expectedPicture = new Picture("fireFallFlipVertical.png");
-//
-//		/* apply the filter */
-//		Logic.flipVertical(studentPicture);
-//
-//		// the resulting student image should be pixel by pixel equivalent to
-//		// the expectedPicture image
-//		assertEquals(expectedPicture, studentPicture, "Flip Vertical");
-//	}
-//
-//	@Test
-//	@Order(7)
-//	public void testBlur()
-//	{
-//		/* Create two identical Picture objects from the same picture */
-//		Picture studentPicture = new Picture("fireFall.png");
-//		Picture expectedPicture = new Picture("fireFallBlur.png");
-//
-//		/* apply the filter */
-//		Logic.blur(studentPicture);
-//
-//		// the resulting student image should be pixel by pixel equivalent to
-//		// the expectedPicture image
-//		assertEquals(expectedPicture, studentPicture, "Blur");
-//	}
+	@Test
+	@Order(6)
+	public void testFlipVertical()
+	{
+		/* Create two identical Picture objects from the same picture */
+		Picture studentPicture = new Picture("fireFall.png");
+		Picture expectedPicture = new Picture("fireFallFlipVertical.png");
+
+		/* apply the filter */
+		Logic.flipVertical(studentPicture);
+
+		// the resulting student image should be pixel by pixel equivalent to
+		// the expectedPicture image
+		assertEquals(expectedPicture, studentPicture, "Flip Vertical");
+	}
+
+	@Test
+	@Order(7)
+	public void testBlur()
+	{
+		/* Create two identical Picture objects from the same picture */
+		Picture studentPicture = new Picture("fireFall.png");
+		Picture expectedPicture = new Picture("fireFallBlur.png");
+
+		/* apply the filter */
+		Logic.blur(studentPicture);
+
+		// the resulting student image should be pixel by pixel equivalent to
+		// the expectedPicture image
+		assertEquals(expectedPicture, studentPicture, "Blur");
+	}
 
 	// //////// Private utility methods
 

@@ -229,7 +229,7 @@ public class Logic
 		int rowFromBottom = pictureHeight - 1;
 		for ( ; rowFromTop < pictureHeight/2 ; rowFromTop++ , rowFromBottom--)
 		{
-			columnLength = pixelsOfPicture[row].length;
+			columnLength = pixelsOfPicture[0].length;
 			for (column = 0 ; column < columnLength ; column++)
 			{
 				//Get the two pixels to swap
@@ -243,6 +243,40 @@ public class Logic
 		}
 
 	}
+	
+	/**
+	 * Purpose: To average the values of a single color of the passed pixels 
+	 */
+	public static double getAverageOfOneColor(Pixel[] pixels, char colorToAverage)
+	{
+		int redValue = 0;
+		int greenValue = 0;
+		int blueValue = 0;
+		double average;
+		
+		switch (colorToAverage)
+		{
+			case 'R':
+				for (int index = 0 ; index < pixels.length ; index++)
+					redValue += pixels[index].getRed();
+				average = (double) (redValue/pixels.length);
+				return average;
+				
+				
+			case 'G':
+				for (int index = 0 ; index < pixels.length ; index++)
+					greenValue += pixels[index].getGreen();
+				average = (double) (greenValue/pixels.length);
+				return average;
+				
+			case 'B':
+				for (int index = 0 ; index < pixels.length ; index++)
+					blueValue += pixels[index].getBlue();
+				average = (double) (blueValue/pixels.length);
+				return average;
+		}
+		return -1;
+	}
 
 	/**
 	 * Purpose: Make the image less sharp
@@ -250,7 +284,40 @@ public class Logic
 	 */
 	public static void blur(DigitalPicture picture)
 	{
-		// TODO Implement this method
+		pixelsOfPicture = picture.getPixels2D();
+		
+		int pictureHeight = picture.getHeight();
+		int topRow = 0;
+		int bottomRow = 1;
+		for ( ; bottomRow < pictureHeight ; topRow++ , bottomRow++)
+		{
+			int pictureWidth = picture.getWidth();
+			int leftColumn = 0;
+			int rightColumn = 1;
+			for ( ; rightColumn < pictureWidth ; leftColumn++ , rightColumn++)
+			{
+				Pixel topLeftPixel = pixelsOfPicture[topRow][leftColumn];
+				Pixel topRightPixel = pixelsOfPicture[topRow][rightColumn];
+				Pixel bottomLeftPixel = pixelsOfPicture[bottomRow][leftColumn];
+				Pixel bottomRightPixel = pixelsOfPicture[bottomRow][rightColumn];
+				
+				Pixel[] pixelsToAverage = {
+											topLeftPixel,
+											topRightPixel,
+							 				bottomLeftPixel,
+							 				bottomRightPixel
+										  };
+				
+				redValue = (int) getAverageOfOneColor(pixelsToAverage, 'R');
+				greenValue = (int) getAverageOfOneColor(pixelsToAverage, 'G');
+				blueValue = (int) getAverageOfOneColor(pixelsToAverage, 'B');
+				
+				newColor = new Color(redValue, greenValue, blueValue);
+				
+				topLeftPixel.setColor(newColor); 
+			}
+			
+		}
 
 	}
 
