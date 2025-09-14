@@ -246,33 +246,36 @@ public class Logic
 	
 	/**
 	 * Purpose: To average the values of a single color of the passed pixels 
+	 * @param pixels the pixel array to average
+	 * @param colorToAverage 'R' , 'G' , or 'B' the color to average
+	 * @return the average of the specified color as an int data data
 	 */
-	public static double getAverageOfOneColor(Pixel[] pixels, char colorToAverage)
+	public static int getAverageOfOneColor(Pixel[] pixels, char colorToAverage)
 	{
 		int redValue = 0;
 		int greenValue = 0;
 		int blueValue = 0;
-		double average;
+		int average;
 		
 		switch (colorToAverage)
 		{
 			case 'R':
 				for (int index = 0 ; index < pixels.length ; index++)
 					redValue += pixels[index].getRed();
-				average = (double) (redValue/pixels.length);
-				return average;
+				average = (redValue/pixels.length); // Integer division 
+				return average; 
 				
 				
 			case 'G':
 				for (int index = 0 ; index < pixels.length ; index++)
 					greenValue += pixels[index].getGreen();
-				average = (double) (greenValue/pixels.length);
+				average = (greenValue/pixels.length); // Integer division
 				return average;
 				
 			case 'B':
 				for (int index = 0 ; index < pixels.length ; index++)
 					blueValue += pixels[index].getBlue();
-				average = (double) (blueValue/pixels.length);
+				average = (blueValue/pixels.length); // Integer division
 				return average;
 		}
 		return -1;
@@ -308,9 +311,9 @@ public class Logic
 							 				bottomRightPixel
 										  };
 				
-				redValue = (int) getAverageOfOneColor(pixelsToAverage, 'R');
-				greenValue = (int) getAverageOfOneColor(pixelsToAverage, 'G');
-				blueValue = (int) getAverageOfOneColor(pixelsToAverage, 'B');
+				redValue = getAverageOfOneColor(pixelsToAverage, 'R');
+				greenValue = getAverageOfOneColor(pixelsToAverage, 'G');
+				blueValue = getAverageOfOneColor(pixelsToAverage, 'B');
 				
 				newColor = new Color(redValue, greenValue, blueValue);
 				
@@ -345,7 +348,7 @@ public class Logic
 		 */
 
 		// Apply one of the filters then view the image again with explore!
-		flipVertical(myPicture); // <----- Change this to one of the other filters
+		blur(myPicture); // <----- Change this to one of the other filters
 								// that you have written
 		myPicture.setTitle("After Filter"); // change the title of the JFrame
 		myPicture.explore();
