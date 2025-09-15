@@ -71,28 +71,28 @@ class TestBeginningClasses
 		assertEquals(-1, boat.getPrice());
 	}
 
-//	@Test
-//	void testConstructor()
-//	{
-//		Boat boat = new Boat("Aqualina", Color.GREEN);
-//		assertEquals("Aqualina", boat.getMake());
-//		assertEquals(Color.GREEN, boat.getColor());
-//		assertEquals(0, boat.getSpeed());
-//  	assertEquals(-1, boat.getPrice());
-//	}
-//
-//	@Test
-//	void testCopyConstructor()
-//	{
-//		Boat boat1 = new Boat("Aqualina", Color.GREEN);
-//		boat1.setPrice(100);
-//      Boat boat2 = new Boat(boat1);	
-//		assertEquals("Aqualina", boat2.getMake());
-//		assertEquals(Color.GREEN, boat2.getColor());
-//		assertEquals(0, boat2.getSpeed());
-//	    assertEquals(100, boat2.getPrice());
-//	}
-//
+	@Test
+	void testConstructor()
+	{
+		Boat boat = new Boat("Aqualina", Color.GREEN);
+		assertEquals("Aqualina", boat.getMake());
+		assertEquals(Color.GREEN, boat.getColor());
+		assertEquals(0, boat.getSpeed());
+  	assertEquals(-1, boat.getPrice());
+	}
+
+	@Test
+	void testCopyConstructor()
+	{
+		Boat boat1 = new Boat("Aqualina", Color.GREEN);
+		boat1.setPrice(100);
+      Boat boat2 = new Boat(boat1);	
+		assertEquals("Aqualina", boat2.getMake());
+		assertEquals(Color.GREEN, boat2.getColor());
+		assertEquals(0, boat2.getSpeed());
+	    assertEquals(100, boat2.getPrice());
+	}
+
 //	@Test
 //	void testAccessorsAndMutators()
 //	{

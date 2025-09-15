@@ -29,8 +29,64 @@ import java.awt.Color;
  */
 public class Boat
 {
-	// TODO: Implement and comment all HAS-A relationships separately
-	// For instance: A boat has-a make
+
+	/////////////////////////////////////////////////////////////////////////////
+	//////////////////////////  INSTANCE FIELDS  ///////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+	
+	private String make; // a Boat has-a make
+	private Color color; // a Boat has-a Color
+	private int speed; // a Boat has-a speed;
+	private int price; // a Boat has-a price
+
+	/////////////////////////////////////////////////////////////////////////////
+	///////////////////////////// CONSTRUCTORS //////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+	// 1. Default Constructor
+	// 2. Constructor with make and color data
+	// 3. Copy Constructor
+	
+	
+	/**
+	 * The DEFAULT CONSTRUCTOR initializes all instance variables.
+	 */
+	public Boat ()
+	{
+		make = null;
+		color = null;
+		speed = 0;
+		price = -1;	
+	}
+	
+	/**
+	 * Initializes the make and color with the passed parameters
+	 * @param initMake the make of the Boat
+	 * @param initColor the color of the Boat
+	 */
+	public Boat(String initMake, Color initColor)
+	{
+		this(); //invoke default constructor
+		make = initMake;
+		color = initColor;
+	}
+	
+	/**
+	 * COPY CONSTRUCTOR 
+	 * @param otherBoat the boat to copy
+	 */
+	public Boat (Boat otherBoat)
+	{
+		make = otherBoat.make;
+		color = otherBoat.color;
+		speed = otherBoat.speed;
+		price = otherBoat.price;
+	}
+	
+	
+	
+	/////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////  ACCESSORS  //////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
 	
 	/**
 	 * Purpose: // TODO
@@ -39,7 +95,7 @@ public class Boat
 	public String getMake()
 	{
 		// TODO
-		return null;
+		return make;
 	}
 
 	/**
@@ -49,7 +105,7 @@ public class Boat
 	public Color getColor()
 	{
 		// TODO
-		return null;
+		return color;
 	}
 
 	/**
@@ -59,7 +115,21 @@ public class Boat
 	public int getSpeed()
 	{
 		// TODO
-		return -99999;
+		return speed;
 	}
+	
+	/**
+	 * Purpose: to return the price of the boat
+	 */
+	public int getPrice()
+	{
+		// TODO Auto-generated method stub
+		return price;
+	}
+	
+	
+	/////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////  ACCESSORS  //////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
 	
 }
