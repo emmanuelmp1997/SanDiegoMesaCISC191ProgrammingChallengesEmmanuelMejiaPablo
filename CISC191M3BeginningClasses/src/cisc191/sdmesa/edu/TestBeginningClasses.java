@@ -105,70 +105,70 @@ class TestBeginningClasses
 	    assertEquals(10000, boat.getPrice());
 	}
 
-//	@Test
-//	void testSpeedMethods()
-//	{
-//		Boat boat = new Boat("BHM", Color.BLUE);
-//		assertEquals(0, boat.getSpeed());
-//		boat.speedUp();
-//		assertEquals(1, boat.getSpeed());
-//		boat.speedUp();
-//		assertEquals(2, boat.getSpeed());
-//		boat.slowDown();
-//		assertEquals(1, boat.getSpeed());
-//	    boat.slowDown();
-//	    assertEquals(0, boat.getSpeed());
-//	    boat.slowDown();
-//	    assertEquals(0, boat.getSpeed());
-//	}
-//
-//	@Test
-//	void testToString()
-//	{
-//		Boat boat = new Boat("BSC", Color.GREEN);
-//		assertEquals("Boat: make: BSC color: java.awt.Color[r=0,g=255,b=0]", boat.toString());
-//		
-//		Boat boat2 = new Boat("Marlin", Color.RED);
-//		assertEquals("Boat: make: Marlin color: java.awt.Color[r=255,g=0,b=0]", boat2.toString());
-//	}
-//
-//
-//	@Test
-//	void testCreateNewSerialNumber()
-//	{
-//		// The boat class creates a unique serial numbers for each boat
-//      // See Java Static Variables in https://beginnersbook.com/2013/04/java-static-class-block-methods-variables/
-//		assertTrue(Boat.createNewSerialNumber() > 0);
-//      // Serial numbers are monotonically increasing
-//	    assertTrue(Boat.createNewSerialNumber() < Boat.createNewSerialNumber());
-//		assertEquals(Boat.createNewSerialNumber() + 1,  Boat.createNewSerialNumber());
-//	}
-//
-//	@Test
-//	void testBoatHasASerialNumber()
-//	{
-//		// Each boat is assigned a unique immutable serial number when they are created
-//		// Hint: use createNewSerialNumber
-//		Boat boat0 = new Boat();
-//		int boat0SerialNumber = boat0.getSerialNumber();
-//		assertTrue(boat0SerialNumber > 0);
-//		
-//		// Check that serial number does not change
-//		assertEquals(boat0SerialNumber, boat0.getSerialNumber());
-//		assertEquals(boat0SerialNumber, boat0.getSerialNumber());
-//		Boat boat1 = new Boat("BMC", Color.GREEN);
-//		// Check that serial number does not change, again
-//		assertEquals(boat0SerialNumber, boat0.getSerialNumber());	
-//
-//		// Check that serial numbers increase
-//		assertTrue(boat1.getSerialNumber() > boat0SerialNumber);
-//		Boat boat2 = new Boat(boat1);
-//		assertTrue(boat2.getSerialNumber() > boat1.getSerialNumber());
-//		
-//		// Check that serial number does not change, again
-//		assertEquals(boat0SerialNumber, boat0.getSerialNumber());	
-//	}
-//
+	@Test
+	void testSpeedMethods()
+	{
+		Boat boat = new Boat("BHM", Color.BLUE);
+		assertEquals(0, boat.getSpeed());
+		boat.speedUp();
+		assertEquals(1, boat.getSpeed());
+		boat.speedUp();
+		assertEquals(2, boat.getSpeed());
+		boat.slowDown();
+		assertEquals(1, boat.getSpeed());
+	    boat.slowDown();
+	    assertEquals(0, boat.getSpeed());
+	    boat.slowDown();
+	    assertEquals(0, boat.getSpeed());
+	}
+
+	@Test
+	void testToString()
+	{
+		Boat boat = new Boat("BSC", Color.GREEN);
+		assertEquals("Boat: make: BSC color: java.awt.Color[r=0,g=255,b=0]", boat.toString());
+		
+		Boat boat2 = new Boat("Marlin", Color.RED);
+		assertEquals("Boat: make: Marlin color: java.awt.Color[r=255,g=0,b=0]", boat2.toString());
+	}
+
+
+	@Test
+	void testCreateNewSerialNumber()
+	{
+		// The boat class creates a unique serial numbers for each boat
+      // See Java Static Variables in https://beginnersbook.com/2013/04/java-static-class-block-methods-variables/
+		assertTrue(Boat.createNewSerialNumber() > 0);
+      // Serial numbers are monotonically increasing
+	    assertTrue(Boat.createNewSerialNumber() < Boat.createNewSerialNumber());
+		assertEquals(Boat.createNewSerialNumber() + 1,  Boat.createNewSerialNumber());
+	}
+
+	@Test
+	void testBoatHasASerialNumber()
+	{
+		// Each boat is assigned a unique immutable serial number when they are created
+		// Hint: use createNewSerialNumber
+		Boat boat0 = new Boat();
+		int boat0SerialNumber = boat0.getSerialNumber();
+		assertTrue(boat0SerialNumber > 0);
+		
+		// Check that serial number does not change
+		assertEquals(boat0SerialNumber, boat0.getSerialNumber());
+		assertEquals(boat0SerialNumber, boat0.getSerialNumber());
+		Boat boat1 = new Boat("BMC", Color.GREEN);
+		// Check that serial number does not change, again
+		assertEquals(boat0SerialNumber, boat0.getSerialNumber());	
+
+		// Check that serial numbers increase
+		assertTrue(boat1.getSerialNumber() > boat0SerialNumber);
+		Boat boat2 = new Boat(boat1);
+		assertTrue(boat2.getSerialNumber() > boat1.getSerialNumber());
+		
+		// Check that serial number does not change, again
+		assertEquals(boat0SerialNumber, boat0.getSerialNumber());	
+	}
+
 //  // **********************************************************
 // 	// Note: Each class is to be implemented in a separate file
 //  // **********************************************************

@@ -38,6 +38,9 @@ public class Boat
 	private Color color; // a Boat has-a Color
 	private int speed; // a Boat has-a speed;
 	private int price; // a Boat has-a price
+	final private int SERIAL_NUMBER; // a Boat has-a serial number
+	
+	private static int counter = 0; //
 
 	/////////////////////////////////////////////////////////////////////////////
 	///////////////////////////// CONSTRUCTORS /////////////////////////////////
@@ -55,7 +58,9 @@ public class Boat
 		make = null;
 		color = null;
 		speed = 0;
-		price = -1;	
+		price = -1;
+				
+		SERIAL_NUMBER = createNewSerialNumber();	
 	}
 	
 	/**
@@ -80,6 +85,8 @@ public class Boat
 		color = otherBoat.color;
 		speed = otherBoat.speed;
 		price = otherBoat.price;
+		
+		SERIAL_NUMBER = otherBoat.SERIAL_NUMBER;
 	}
 	
 	
@@ -141,10 +148,64 @@ public class Boat
 		price = newPrice;
 	}
 	
-	public void setColor(Color n)
+	public void setColor(Color newColor)
 	{
-		
+		color = newColor;
 	}
+	
+	public void setMake (String make)
+	{
+		this.make = make;
+	}
+	
+	public void setSpeed (int newSpeed)
+	{
+		speed = newSpeed;
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////
+	///////////////////////////  OTHER METHODS  ////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * 
+	 */
+	public String toString()
+	{
+		StringBuilder output = new StringBuilder();
+		output.append("Boat: ");
+		output.append("make: " + make + " ");
+		output.append("color: " + color.toString());
+		return output.toString();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static int createNewSerialNumber ()
+	{
+		return ++counter;
+	}
+	
+	public void speedUp()
+	{
+		speed = speed + 1;
+	}
+	
+	public void slowDown()
+	{
+		if (speed == 0)
+		{
+			// Do Nothing
+		}
+		else
+		{
+			speed =  speed - 1;
+		}
+	}
+	
+	
 	
 	
 }
