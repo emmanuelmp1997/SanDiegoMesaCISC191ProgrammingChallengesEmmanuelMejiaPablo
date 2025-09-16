@@ -93,18 +93,18 @@ class TestBeginningClasses
 	    assertEquals(100, boat2.getPrice());
 	}
 
-//	@Test
-//	void testAccessorsAndMutators()
-//	{
-//		Boat boat = new Boat();
-//		boat.setColor(Color.GREEN);
-//		assertEquals(Color.GREEN, boat.getColor());
-//	    boat.setColor(Color.RED);
-//	    assertEquals(Color.RED, boat.getColor());
-//	    boat.setPrice(10000);
-//	    assertEquals(10000, boat.getPrice());
-//	}
-//
+	@Test
+	void testAccessorsAndMutators()
+	{
+		Boat boat = new Boat();
+		boat.setColor(Color.GREEN);
+		assertEquals(Color.GREEN, boat.getColor());
+	    boat.setColor(Color.RED);
+	    assertEquals(Color.RED, boat.getColor());
+	    boat.setPrice(10000);
+	    assertEquals(10000, boat.getPrice());
+	}
+
 //	@Test
 //	void testSpeedMethods()
 //	{
