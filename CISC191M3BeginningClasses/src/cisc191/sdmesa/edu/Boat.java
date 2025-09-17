@@ -76,7 +76,7 @@ public class Boat
 	}
 	
 	/**
-	 * COPY CONSTRUCTOR 
+	 * COPY CONSTRUCTOR - all fields are the same except the serial number
 	 * @param otherBoat the boat to copy
 	 */
 	public Boat (Boat otherBoat)
@@ -86,7 +86,7 @@ public class Boat
 		speed = otherBoat.speed;
 		price = otherBoat.price;
 		
-		SERIAL_NUMBER = otherBoat.SERIAL_NUMBER;
+		SERIAL_NUMBER = createNewSerialNumber();
 	}
 	
 	
@@ -204,6 +204,13 @@ public class Boat
 			speed =  speed - 1;
 		}
 	}
+	
+	public int getSerialNumber ()
+	{
+		return SERIAL_NUMBER;
+	}
+	
+	
 	
 	
 	

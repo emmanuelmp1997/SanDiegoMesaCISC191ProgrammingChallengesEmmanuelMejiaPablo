@@ -169,24 +169,24 @@ class TestBeginningClasses
 		assertEquals(boat0SerialNumber, boat0.getSerialNumber());	
 	}
 
-//  // **********************************************************
-// 	// Note: Each class is to be implemented in a separate file
-//  // **********************************************************
-//
-//
-//	@Test
-//	void testBoatHasAnOwner()
-//	{
-//		Person owner = new Person("Alexandra Keaton", "858-555-1313", "92123");
-//		Boat boat = new Boat("SailyBoat", Color.MAGENTA);
-//		boat.setPrice(188888);
-//		boat.setOwner(owner);
-//		assertEquals("Alexandra Keaton", boat.getOwner().getName());
-//		// Owner changes name
-//		owner.setName("Alexandra Smith");
-//	    assertEquals("Alexandra Smith", boat.getOwner().getName());
-//	}	
-//
+  // **********************************************************
+ 	// Note: Each class is to be implemented in a separate file
+  // **********************************************************
+
+
+	@Test
+	void testBoatHasAnOwner()
+	{
+		Person owner = new Person("Alexandra Keaton", "858-555-1313", "92123");
+		Boat boat = new Boat("SailyBoat", Color.MAGENTA);
+		boat.setPrice(188888);
+		boat.setOwner(owner);
+		assertEquals("Alexandra Keaton", boat.getOwner().getName());
+		// Owner changes name
+		owner.setName("Alexandra Smith");
+	    assertEquals("Alexandra Smith", boat.getOwner().getName());
+	}	
+
 //	@Test
 //	void testBoatHasACaptain()
 //	{ 
