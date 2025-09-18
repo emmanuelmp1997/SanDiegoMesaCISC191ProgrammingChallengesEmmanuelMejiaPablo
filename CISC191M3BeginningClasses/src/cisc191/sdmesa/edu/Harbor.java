@@ -17,73 +17,94 @@ import java.awt.Color;
  * 
  * <<add more references here>>
  *  
- * Version/date: 
+ * Version/date: 1.0
  * 
  * Responsibilities of class:
  * 
  */
 
-public class Person
+public class Harbor
 {
-
 	/////////////////////////////////////////////////////////////////////////////
 	//////////////////////////  INSTANCE FIELDS  ///////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
-
-	private String name; // a Person has-a name
-	private String phoneNumber; // a Person has-a phone number
-	private String zipCode; // a Person has-a zipCode
+	
+	private Boat[] harborStock;
 	
 	/////////////////////////////////////////////////////////////////////////////
 	///////////////////////////// CONSTRUCTORS /////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
-
-	public Person ()
+	
+	/**
+	 * 
+	 */
+	public Harbor ()
 	{
-		name = "";
-		phoneNumber = "";
-		zipCode = "";
+		harborStock = null;
 	}
 	
-	public Person (String name, String phoneNumber, String zipCode)
+	/**
+	 * This constructor takes in the size of the harborStock array
+	 * and initializes the elements in the array to null
+	 * @param size
+	 */
+	public Harbor (int size)
 	{
 		this();
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.zipCode = zipCode;
-	}
-	
-	/////////////////////////////////////////////////////////////////////////////
-	/////////////////////////////  ACCESSORS  //////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////
-	
-	public String getName ()
-	{
-		return name;
+		harborStock = new Boat[size];
+		
+		for (int i = 0 ; i < harborStock.length ; i++)
+		{
+			harborStock[i] = null;
+		}
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////  MUTATORS  ///////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
-
-	public void setName (String nameOfPerson)
+	
+	public void setBoatAt (Boat boat, int index)
 	{
-		name = nameOfPerson;
+		//Boat boatCopy = new Boat(boat);
+		harborStock[index] = boat;
+	}
+	
+	
+	/////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////  ACCESSORS  //////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+	
+	public Boat getBoatAt (int index)
+	{
+		return harborStock[index];
+	} 
+	
+	/**
+	 * The getInventory method creates a new array object who's elements reference
+	 * the same boat objects as the original array.
+	 * @return the copied array
+	 */
+	public Boat[] getInventory ()
+	{
+		Boat[] copyOfInventory = new Boat[harborStock.length];
+		
+		for (int i = 0 ; i < harborStock.length ; i++)
+		{
+			copyOfInventory[i] = harborStock[i];
+		}
+		return copyOfInventory;
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////
 	///////////////////////////  OTHER METHODS  ////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
-
-	public String toString()
+	
+	public Boat parkBoatAt (Boat boat, int index)
 	{
-		StringBuilder output = new StringBuilder("");
-		output.append(name + " ");
-		output.append(phoneNumber + " ");
-		output.append(zipCode);
-		return output.toString();
+	
+		Boat boatParkedAtIndex = harborStock[index];
+		setBoatAt(boat, index);
+		return boatParkedAtIndex;
 	}
-	
-	
 	
 }

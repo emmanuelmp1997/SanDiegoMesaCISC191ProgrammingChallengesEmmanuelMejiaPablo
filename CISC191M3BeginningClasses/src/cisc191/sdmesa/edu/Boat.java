@@ -4,7 +4,7 @@ import java.awt.Color;
 
 /**
  * Lead Author(s):
- * @author 
+ * @author Emmanuel Mejia Pablo
  * @author 
  * <<add additional lead authors here, with a full first and last name>>
  * 
@@ -17,15 +17,10 @@ import java.awt.Color;
  * 
  * <<add more references here>>
  *  
- * Version/date: 
+ * Version/date:  1.0 
  * 
  * Responsibilities of class:
  * 
- */
-
-//TODO: implement and remove all TODOs
-
-/**
  */
 public class Boat
 {
@@ -34,20 +29,30 @@ public class Boat
 	//////////////////////////  INSTANCE FIELDS  ///////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
 	
+	final private int SERIAL_NUMBER; // a Boat has-a serial number
+	
+	// Boat descriptions
 	private String make; // a Boat has-a make
 	private Color color; // a Boat has-a Color
 	private int speed; // a Boat has-a speed;
+	// Boat Price
 	private int price; // a Boat has-a price
-	final private int SERIAL_NUMBER; // a Boat has-a serial number
+	// Authorized Persons
+	private Person owner; // a Boat has-an owner
+	private Person captain; // a Boat has-a captain
+	
 	
 	private static int counter = 0; //
 
 	/////////////////////////////////////////////////////////////////////////////
 	///////////////////////////// CONSTRUCTORS /////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
-	// 1. Default Constructor
-	// 2. Constructor with make and color data
-	// 3. Copy Constructor
+					// 1. Default Constructor
+					// 2. Constructor with make and color data
+					// 3. Copy Constructor
+	//////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////
 	
 	
 	/**
@@ -89,7 +94,43 @@ public class Boat
 		SERIAL_NUMBER = createNewSerialNumber();
 	}
 	
+	/////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////  MUTATORS  ///////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
 	
+	/**
+	 * Purpose: To update the price field of Boat objects.
+	 * @param newPrice the new price to assign as the instance' price
+	 */
+	public void setPrice (int newPrice)
+	{
+		price = newPrice;
+	}
+	
+	public void setColor(Color newColor)
+	{
+		color = newColor;
+	}
+	
+	public void setMake (String make)
+	{
+		this.make = make;
+	}
+	
+	public void setSpeed (int newSpeed)
+	{
+		speed = newSpeed;
+	}
+	
+	public void setOwner (Person owner)
+	{
+		this.owner = owner; 
+	}
+	
+	public void setCaptain (Person captain)
+	{
+		this.captain = captain;
+	}
 	
 	/////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////  ACCESSORS  //////////////////////////////////
@@ -134,41 +175,23 @@ public class Boat
 		return price;
 	}
 	
-	
-	/////////////////////////////////////////////////////////////////////////////
-	/////////////////////////////  MUTATORS  ///////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////
-	
-	/**
-	 * Purpose: To update the price field of Boat objects.
-	 * @param newPrice the new price to assign as the instance' price
-	 */
-	public void setPrice (int newPrice)
+	public Person getOwner ()
 	{
-		price = newPrice;
+		return owner;
 	}
 	
-	public void setColor(Color newColor)
+	public Person getCaptain ()
 	{
-		color = newColor;
+		return captain;
 	}
-	
-	public void setMake (String make)
-	{
-		this.make = make;
-	}
-	
-	public void setSpeed (int newSpeed)
-	{
-		speed = newSpeed;
-	}
-	
+																								
 	/////////////////////////////////////////////////////////////////////////////
 	///////////////////////////  OTHER METHODS  ////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
-	
+
 	/**
-	 * 
+	 * The toString method returns the description of the boat object (make and color)
+	 * @return a string with the physical description of the boat
 	 */
 	public String toString()
 	{
@@ -180,19 +203,27 @@ public class Boat
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * The createNewSerialNumber method returns the current value of the counter static variable
+	 * and then increases the value of the counter variable.
+	 * @return a serial number for the boat
 	 */
 	public static int createNewSerialNumber ()
 	{
 		return ++counter;
 	}
 	
+	/**
+	 * The speedUp method increases the value of the speed variable by a unit of one
+	 */
 	public void speedUp()
 	{
 		speed = speed + 1;
 	}
 	
+	/**
+	 * The slowDown method decreases the value of the speed variable by a unit of one. The minimum value
+	 * is zero.
+	 */
 	public void slowDown()
 	{
 		if (speed == 0)
@@ -205,10 +236,16 @@ public class Boat
 		}
 	}
 	
+	/**
+	 * The getSerialNumber method returns the serial number of a Boat instance.
+	 * @return the value assigned to the SERIAL_NUMBER instance variable
+	 */
 	public int getSerialNumber ()
 	{
 		return SERIAL_NUMBER;
 	}
+	
+	
 	
 	
 	

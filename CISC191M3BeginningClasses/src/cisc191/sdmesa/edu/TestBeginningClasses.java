@@ -185,71 +185,71 @@ class TestBeginningClasses
 		// Owner changes name
 		owner.setName("Alexandra Smith");
 	    assertEquals("Alexandra Smith", boat.getOwner().getName());
+	}	 
+
+	@Test
+	void testBoatHasACaptain()
+	{ 
+		Person owner = new Person("Alexandra Keaton", "858-555-1313", "92123");
+		Person captain = new Person("Cappy Tain", "858-555-999", "92101");
+		Boat boat = new Boat("McBoatFace", Color.BLUE);
+		boat.setOwner(owner);
+		boat.setCaptain(captain);
+		assertEquals("Cappy Tain", boat.getCaptain().getName());
+		// Captain changes name
+		captain.setName("Haddock");
+		assertEquals("Haddock", boat.getCaptain().getName());
+		// Owner stays the same
+		assertEquals("Alexandra Keaton", boat.getOwner().getName());
 	}	
 
-//	@Test
-//	void testBoatHasACaptain()
-//	{ 
-//		Person owner = new Person("Alexandra Keaton", "858-555-1313", "92123");
-//		Person captain = new Person("Cappy Tain", "858-555-999", "92101");
-//		Boat boat = new Boat("McBoatFace", Color.BLUE);
-//		boat.setOwner(owner);
-//		boat.setCaptain(captain);
-//		assertEquals("Cappy Tain", boat.getCaptain().getName());
-//		// Captain changes name
-//		captain.setName("Haddock");
-//		assertEquals("Haddock", boat.getCaptain().getName());
-//		// Owner stays the same
-//		assertEquals("Alexandra Keaton", boat.getOwner().getName());
-//	}	
-//
-//	@Test
-//	void testHarbor()
-//	{
-//      // A harbor has-many boats
-//
-//		Boat boat1 = new Boat("BMC", Color.GREEN);
-//		Boat boat2 = new Boat("BMX", Color.RED);
-//		Boat boat3 = new Boat("UXB", Color.YELLOW);
-//		
-//      // Harbor is empty when just created
-//		Harbor stock = new Harbor(5);
-//		assertEquals(null, stock.getBoatAt(0));
-//		assertEquals(null, stock.getBoatAt(1));
-//		assertEquals(null, stock.getBoatAt(2));
-//		assertEquals(null, stock.getBoatAt(3));
-//		assertEquals(null, stock.getBoatAt(4));
-//		
-//		// Hint: parkBoatAt is not just an accessor, and not just a mutator
-//      // Park new boat, and return the boat the was parked there
-//		assertEquals(null, stock.parkBoatAt(boat1, 3));
-//		Boat retrievedBoat = stock.parkBoatAt(boat2, 3);
-//		assertEquals(boat1, retrievedBoat);
-//		retrievedBoat = stock.parkBoatAt(boat3, 3);
-//		assertEquals(boat2, retrievedBoat);
-//		Boat[] inventory = stock.getInventory();
-//		assertArrayEquals(new Boat[]{null, null, null, boat3, null}, inventory);
-//		stock.parkBoatAt(boat2, 1);
-//      // The inventory is a carbon copy list of boats that is handed out to interested parties.
-//      // But these parties cannot change the inventory, only the harbor can do that.
-//		assertArrayEquals(new Boat[]{null, null, null, boat3, null}, inventory); // This is correct!
-//		assertArrayEquals(new Boat[]{null, boat2, null, boat3, null}, stock.getInventory());
-//	}
-//
-//	@Test
-//	void testCreditCardPayment()
-//	{
-//		Person person = new Person("Alex Keaton", "619-555-1212", "92111");
-//		assertEquals("Alex Keaton 619-555-1212 92111", person.toString());
-//		
-//		CreditCard card = new CreditCard("4444111122223333", "12/24", "123", person);
-//		assertEquals("4444111122223333 12/24 123 Alex Keaton", card.toString());
-//		
-//		Boat boat = new Boat("SpeedyBoat", Color.GREEN);
-//		boat.setPrice(19995);
-//				
-//		CreditCardCharge charge = new CreditCardCharge(2020, 8, 14, boat, "BoatCo", card);
-//		assertEquals("2020/8/14 4444111122223333 12/24 123 Alex Keaton BoatCo SpeedyBoat $19995", charge.toString());
-//	}
+	@Test
+	void testHarbor()
+	{
+      // A harbor has-many boats
+
+		Boat boat1 = new Boat("BMC", Color.GREEN);
+		Boat boat2 = new Boat("BMX", Color.RED);
+		Boat boat3 = new Boat("UXB", Color.YELLOW);
+		
+      // Harbor is empty when just created
+		Harbor stock = new Harbor(5);
+		assertEquals(null, stock.getBoatAt(0));
+		assertEquals(null, stock.getBoatAt(1));
+		assertEquals(null, stock.getBoatAt(2));
+		assertEquals(null, stock.getBoatAt(3));
+		assertEquals(null, stock.getBoatAt(4));
+		
+      // Hint: parkBoatAt is not just an accessor, and not just a mutator
+      // Park new boat, and return the boat the was parked there
+		assertEquals(null, stock.parkBoatAt(boat1, 3));
+		Boat retrievedBoat = stock.parkBoatAt(boat2, 3); 
+		assertEquals(boat1, retrievedBoat);
+		retrievedBoat = stock.parkBoatAt(boat3, 3);
+		assertEquals(boat2, retrievedBoat); 
+		Boat[] inventory = stock.getInventory();
+		assertArrayEquals(new Boat[]{null, null, null, boat3, null}, inventory);
+		stock.parkBoatAt(boat2, 1);
+      // The inventory is a carbon copy list of boats that is handed out to interested parties.
+      // But these parties cannot change the inventory, only the harbor can do that.
+		assertArrayEquals(new Boat[]{null, null, null, boat3, null}, inventory); // This is correct!
+		assertArrayEquals(new Boat[]{null, boat2, null, boat3, null}, stock.getInventory());
+	}
+
+	@Test
+	void testCreditCardPayment()
+	{
+		Person person = new Person("Alex Keaton", "619-555-1212", "92111");
+		assertEquals("Alex Keaton 619-555-1212 92111", person.toString());
+		
+		CreditCard card = new CreditCard("4444111122223333", "12/24", "123", person);
+		assertEquals("4444111122223333 12/24 123 Alex Keaton", card.toString());
+		
+		Boat boat = new Boat("SpeedyBoat", Color.GREEN);
+		boat.setPrice(19995);
+				
+		CreditCardCharge charge = new CreditCardCharge(2020, 8, 14, boat, "BoatCo", card);
+		assertEquals("2020/8/14 4444111122223333 12/24 123 Alex Keaton BoatCo SpeedyBoat $19995", charge.toString());
+	}
 
 }
