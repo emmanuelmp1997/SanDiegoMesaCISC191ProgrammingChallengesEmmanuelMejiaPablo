@@ -29,14 +29,14 @@ public class Harbor
 	//////////////////////////  INSTANCE FIELDS  ///////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
 	
-	private Boat[] harborStock;
+	private Boat[] harborStock; // a Harbor has-many Boats
 	
 	/////////////////////////////////////////////////////////////////////////////
 	///////////////////////////// CONSTRUCTORS /////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
 	
 	/**
-	 * 
+	 * The DEFAULT CONSTRUCTOR 
 	 */
 	public Harbor ()
 	{
@@ -44,7 +44,7 @@ public class Harbor
 	}
 	
 	/**
-	 * This constructor takes in the size of the harborStock array
+	 * This constructor takes in a number and sets it as the size of the harborStock array
 	 * and initializes the elements in the array to null
 	 * @param size
 	 */

@@ -244,12 +244,4 @@ public class Boat
 	{
 		return SERIAL_NUMBER;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }
